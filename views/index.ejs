@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+    <title>Google</title>
+</head>
+<body class="bg-gray-200  flex items-center justify-center">
+
+    <div class=" w-1/2   p-6 space-y-4">
+        <h1 class="text-2xl bg-white rounded-lg shadow-md p-6 font-semibold mb-4">Google Form</h1>
+        <form action="/submit" method="POST" onsubmit="return validateForm()">
+            <div class="mb-4 bg-white rounded-lg shadow-md p-6 w-full p-3">
+                <legend class=" py-3">MCQ
+                    <span class="text-red-500 mr-1">*</span>
+                </legend>
+                <div class="flex items-center  py-1 ">
+                    <input type="radio" id="option1" name="mcq" value="Option 1" class="w-4 h-4" required>
+                    <label class="text-gray-700 px-2" for="option1">Option 1</label>
+                </div>
+                <div class="flex items-center  py-1">
+                    <input type="radio" id="option2" name="mcq" value="Option 2" class="w-4 h-4" required>
+                    <label  for="option2" class="text-gray-700 px-2">Option 2</label>
+                </div>
+                <div class="flex items-center  py-1">
+                    <input type="radio" id="option3" name="mcq" value="Option 3" class="w-4 h-4" required>
+                    <label  for="option3" class="text-gray-700 px-2">Option 3</label>
+                </div>
+            </div>
+
+            <div class="mb-4 bg-white rounded-lg shadow-md p-6 w-full">
+                <legend class="py-3">Checkbox
+                    <span class="text-red-500 mr-1">*</span>
+                </legend>
+               
+                <div class=" flex items-center  py-1">
+                    <input type="checkbox" id="Option1" name="checkbox" value="Option 1" class="w-4 h-4" >
+                    <label for="Option1" class="px-2">Option 1</label><br>
+                </div>
+                <div class=" flex items-center py-1">
+                    <input type="checkbox" id="Option2" name="checkbox" value="Option 2" class="w-4 h-4" >
+                    <label for="Option2" class="px-2">Option 2</label><br>
+                </div>
+                <div class="flex items-center py-1">
+                    <input type="checkbox" id="Option3" name="checkbox" value="Option 3"  class="w-4 h-4" >
+                    <label for="Option3" class="px-2">Option 3</label><br>
+                </div>
+                <div class="error-message text-red-500" id="checkboxError"></div>
+            </div>
+
+            <div class="mb-4 bg-white rounded-lg shadow-md p-6 w-full">
+                <legend class="py-3">Short Answer
+                    <span class="text-red-500 mr-1">*</span>
+                </legend>
+                <input type="text" id="shortAnswer" name="shortAnswer" placeholder="Your answer" class="p-2  border-b border-black  rounded w-full" required>
+            </div>
+
+            <div class="mb-4 bg-white rounded-lg shadow-md p-6 w-full">
+                <legend class="py-3">Paragraph
+                    <span class="text-red-500 mr-1">*</span>
+                </legend>
+                <textarea id="paragraph" name="paragraph" placeholder="Your answer" class="p-2 border-b border-black rounded w-full" required></textarea>
+            </div>
+
+            <div class="mb-4 bg-white rounded-lg shadow-md p-6 w-full">
+                <legend class="py-3">Drop Down
+                    <span class="text-red-500 mr-1">*</span>
+                </legend>
+                <select id="dropDown" name="dropDown" class="p-2 border rounded-md ">
+                    <option value="Option 1" required>Option 1</option >
+                    <option value="Option 2" required>Option 2</option>
+                    <option value="Option 3" required>Option 3</option>
+                </select>
+            </div>
+
+            <div class="mb-4 bg-white rounded-lg shadow-md p-6 w-full">
+                <legend class="py-3">File Upload
+                    <span class="text-red-500 mr-1">*</span>
+                </legend>
+                <input type="file" id="addfile" name="addfile" class="p-2 border rounded-md " required>
+            </div>
+
+            <div class="mb-4 bg-white rounded-lg shadow-md p-6 w-full">
+                <legend>Linear Scale
+                    <span class="text-red-500 mr-1">*</span>
+                </legend>
+                <table class="w-full">
+                    <tr class="p-2">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="p-2">
+                        <td></td>
+                        <td><label for="rating1">1</label></td>
+                        <td><label for="rating2">2</label></td>
+                        <td><label for="rating3">3</label></td>
+                        <td><label for="rating4">4</label></td>
+                        <td><label for="rating5">5</label></td>
+                        <td></td>
+                    </tr>
+                    <tr class="py-2">
+                        <td class="py-5">Worst</td>
+                        <td class="py-5"><input type="radio" id="rating1" name="ratingscale" value="1" class="w-4 h-4" required></td>
+                        <td class="py-5"><input type="radio" id="rating2" name="ratingscale" value="2" class="w-4 h-4" required></td>
+                        <td class="py-5"><input type="radio" id="rating3" name="ratingscale" value="3" class="w-4 h-4" required></td>
+                        <td class="py-5"><input type="radio" id="rating4" name="ratingscale" value="4" class="w-4 h-4" required></td>
+                        <td class="py-5"><input type="radio" id="rating5" name="ratingscale" value="5" class="w-4 h-4" required></td>
+                        <td class="py-5">Best</td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="mb-4 bg-white rounded-lg shadow-md p-6 w-full">
+                <legend class="py-3">Multi choice Grid
+                    <span class="text-red-500 mr-1">*</span>
+                </legend>
+                <table class="w-full">
+                    <thead>
+                        <tr class="">
+                            <th class="py-3"></th>
+                            <th class="py-3">Column 1</th>
+                            <th class="py-3">Column 2</th>
+                            <th class="">Column 3</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr class="p-4  bg-gray-100 items-center">
+                            <td class="px-6 py-3">Row 1</td>
+                            <td class="px-6 py-3"><input type="radio" name="mcgRow1" value="Column 1" class="w-4 h-4" required></td>
+                            <td class="px-6 py-3"><input type="radio" name="mcgRow1" value="Column 2" class="w-4 h-4" required></td>
+                            <td class="px-6 py-3"><input type="radio" name="mcgRow1" value="Column 3" class="w-4 h-4" required></td>
+                        </tr>
+                        <tr class="p-4  bg-gray-100">
+                            <td class="px-6 py-3">Row 2</td>
+                            <td class="px-6 py-3"><input type="radio" name="mcgRow2" value="Column 1" class="w-4 h-4" required></td>
+                            <td class="px-6 py-3"><input type="radio" name="mcgRow2" value="Column 2" class="w-4 h-4" required></td>
+                            <td class="px-6 py-3"><input type="radio" name="mcgRow2" value="Column 3" class="w-4 h-4" required></td>
+                        </tr>
+                        <tr class="p-4  bg-gray-100">
+                            <td class="px-6 py-3">Row 3</td>
+                            <td class="px-6 py-3"><input type="radio" name="mcgRow3" value="Column 1" class="w-4 h-4" required></td>
+                            <td class="px-6 py-3"><input type="radio" name="mcgRow3" value="Column 2" class="w-4 h-4" required></td>
+                            <td class="px-6 py-3"><input type="radio" name="mcgRow3" value="Column 3" class="w-4 h-4" required></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mb-4 bg-white rounded-lg shadow-md p-6 w-full">
+                <legend>Tick box Grid
+                    <span class="text-red-500 mr-1">*</span>
+                </legend>
+                <table class="w-full">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Column 1</th>
+                            <th>Column 2</th>
+                            <th>Column 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="p-4  bg-gray-100 items-center">
+                            <td class="px-6 py-3">Row 1</td>
+                            <td class="px-6 py-3"><input type="checkbox"  name="checkbox1" value="Column 1" class="w-4 h-4" ></td>
+                            <td class="px-6 py-3"><input type="checkbox" name="checkbox1" value="Column 2" class="w-4 h-4" ></td>
+                            <td class="px-6 py-3"><input type="checkbox" name="checkbox1" value="Column 3" class="w-4 h-4" ></td>
+                        </tr>
+                        <tr class="p-4  bg-gray-100 items-center">
+                            <td class="px-6 py-3">Row 2</td>
+                            <td class="px-6 py-3"><input type="checkbox" name="checkbox2" value="Column 1" class="w-4 h-4" ></td>
+                            <td class="px-6 py-3"><input type="checkbox" name="checkbox2"  value="Column 2" class="w-4 h-4" ></td>
+                            <td class="px-6 py-3"><input type="checkbox" name="checkbox2"  value="Column 3" class="w-4 h-4" ></td>
+                        </tr>
+                        <tr class="p-4  bg-gray-100 items-center">
+                            <td class="px-6 py-3">Row 3</td>
+                            <td class="px-6 py-3"><input type="checkbox" name="checkbox3" value="Column 1" class="w-4 h-4" ></td>
+                            <td class="px-6 py-3"><input type="checkbox" name="checkbox3"  value="Column 2" class="w-4 h-4" ></td>
+                            <td class="px-6 py-3"><input type="checkbox" name="checkbox3"  value="Column 3" class="w-4 h-4" ></td>
+                        </tr>
+                    </tbody>
+                    <div class="error-message text-red-500" id="checkboxError1"></div>
+                </table>
+            </div>
+            <div >
+                <button class="p-2 px-4 bg-indigo-800 rounded-md text-white"  type="submit">Submit</button>
+            </div>
+        </form>
+<script>
+        function validateForm() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"][name="checkbox"]');
+            var isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+            var checkboxes1 = document.querySelectorAll('input[type="checkbox"][name="checkbox1"]');
+            var isChecked1 = Array.from(checkboxes1).some(checkbox => checkbox.checked);
+            var checkboxes2 = document.querySelectorAll('input[type="checkbox"][name="checkbox2"]');
+            var isChecked2 = Array.from(checkboxes2).some(checkbox => checkbox.checked);
+            var checkboxes3 = document.querySelectorAll('input[type="checkbox"][name="checkbox3"]');
+            var isChecked3 = Array.from(checkboxes3).some(checkbox => checkbox.checked);
+            var errorElement = document.getElementById('checkboxError');
+            var errorElement1 = document.getElementById('checkboxError1');
+            if (!isChecked) {
+                    errorElement.textContent = "Please check at least one checkbox.";
+                    return false; 
+                }
+            if (!isChecked1 || !isChecked2 || !isChecked3 ) {
+                errorElement1.textContent = "Please check at least one checkbox for each row.";
+                return false; 
+            }
+            
+                errorElement.textContent = ""; 
+                errorElement1.textContent = ""; 
+                return true;
+        }
+    </script>
+</body>
+</html>
